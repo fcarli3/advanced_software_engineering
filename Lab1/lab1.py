@@ -11,6 +11,35 @@ def sum(m,n):
 
     return m;
 
+
+def subtract(m,n):
+    #TODO
+    if(n < 0):
+        for i in range(abs(n)):
+            m += 1;
+    else:
+        for i in range(n):
+            m -= 1;
+
+    return m;
+
+
+def multiply(m,n):
+    #TODO
+    res = 0;
+    negativeRes = m > 0 and n < 0 or m < 0 and n > 0;
+
+    n = abs(n);
+    m = abs(m);
+
+    for i in range(n):
+        res += m;
+
+    res = -res if negativeRes else res;
+
+    return res;
+
+
 def divide(m,n):
     #TODO
     res = 0;
@@ -28,14 +57,34 @@ def divide(m,n):
     return res;
 
 
+def gcd(m,n):
+    #TODO
+    while(n != 0):
+        tmp = n;
+        n = m % n;
+        m = tmp;
+
+    return m;
+
 def main():
     print('\nCalculator\n');
 
-    s = sum(10.5, 3);
-    print("Sum: " + str(s));
+    sum_ = sum(10, 3);
+    print("Sum: " + str(sum_));
 
-    d = divide(4,7);
-    print("Divide: " + str(d) + "\n");
+    sub = subtract(6,-5);
+    print("Subtract: " + str(sub));
 
-main();
+    mul = multiply(5,-4);
+    print("Multiply: " + str(mul));
+
+    d = divide(4,2);
+    print("Divide: " + str(d));
+
+    great_common_div = gcd(6,36);
+    print("GCD: " + str(great_common_div) + "\n");
+    
+
+if __name__ == "_main_":
+    main();
 
